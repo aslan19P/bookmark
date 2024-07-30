@@ -109,3 +109,6 @@ venv.bak/
 media
 # Exclude machine-specific vs code settings
 .vscode/settings.json
+
+
+ton.py
