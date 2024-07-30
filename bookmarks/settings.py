@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-ealroq-wa*bt0=ej86*p3v_!xi0(vspa&n06kotb@mcj)dy0ue
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_django',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -92,6 +94,10 @@ DATABASES = {
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'account.authentication.EmailAuthBackend',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.github.GithubOAuth2',
 ]
 
 # Password validation
@@ -154,3 +160,17 @@ EMAIL_HOST_USER = user
 EMAIL_HOST_PASSWORD = password
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+
+SOCIAL_AUTH_FACEBOOK_KEY = '513366201145261' 
+SOCIAL_AUTH_FACEBOOK_SECRET = '5d833aa475951f20cec33c9ef9fa9f5b'
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+
+
+SOCIAL_AUTH_TWITTER_KEY = 'j1HOqu9T183D8ZDkYvZKFEEZM'
+SOCIAL_AUTH_TWITTER_SECRET = 'CIh6CrlLL85CFZDoEI3dG85oDgbgSDieGFz8us26oEzJU2KBLu'
+
+
+SOCIAL_AUTH_GITHUB_KEY = 'Ov23lizPpD5OiXIjmBEZ'
+SOCIAL_AUTH_GITHUB_SECRET = 'c0575f44549b3ea4743c5fa0e8f899998373cfce'
+SOCIAL_AUTH_GITHUB_SCOPE = ['email']
