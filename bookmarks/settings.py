@@ -50,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 PASSWORD_HASHERS = [
@@ -73,6 +74,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
             ],
         },
     },
@@ -151,6 +153,8 @@ LOGIN_REDIRECT_URL = 'dashboard'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 
+SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
+
 from .ton  import *
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -160,6 +164,11 @@ EMAIL_HOST_USER = user
 EMAIL_HOST_PASSWORD = password
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+SOCIAL_AUTH_FACEBOOK_KEY = kesface 
+SOCIAL_AUTH_FACEBOOK_SECRET = secretface
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+
 
 
 SOCIAL_AUTH_GITHUB_KEY = keygit
